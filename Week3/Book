@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+// Define the Book class
+class Book {
+    String name;
+    String author;
+    int price;
+    int numPages;
+
+    // Parameterized constructor
+    public Book(String name, String author, int price, int numPages) {
+        this.name = name;
+        this.author = author;
+        this.price = price;
+        this.numPages = numPages;
+    }
+
+    // toString method to return the book details
+  
+    public String toString() {
+        String bookDetails = "Book name: " + this.name + "\n" +
+                             "Author name: " + this.author + "\n" +
+                             "Price: " + this.price + "\n" +
+                             "Number of pages: " + this.numPages + "\n";
+        return bookDetails;
+    }
+}
+
+// Main class to run the program
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Read the number of books
+	System.out.println("Bhuvan. A\n24BECS400");
+        System.out.print("Enter the number of books: ");
+        int n = scanner.nextInt();
+        
+        // Define an array of Book objects
+        Book[] books = new Book[n];
+        
+        // Loop to read book details
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter details for book " + (i + 1) + ":");
+            System.out.print("Name: ");
+            String name = scanner.next();
+            System.out.print("Author: ");
+            String author = scanner.next();
+            System.out.print("Price: ");
+            int price = scanner.nextInt();
+            System.out.print("Number of pages: ");
+            int numPages = scanner.nextInt();
+            
+            // Create a new Book object and add it to the array
+            books[i] = new Book(name, author, price, numPages);
+        }
+        
+        // Loop to display book details
+        System.out.println("\nBook Details:");
+        for (int i = 0; i < n; i++) {
+            System.out.println(books[i].toString());
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
